@@ -1,1 +1,55 @@
 
+
+import java.util.*;
+
+public class Main 
+{
+    public static void main(String[] args) 
+    
+    
+    {
+        
+        Scanner sc = new Scanner(System.in);
+
+
+
+
+        String[] words = sc.nextLine().trim().split(" +");
+        String key = sc.nextLine();
+
+
+        StringBuilder s = new StringBuilder();
+        
+        StringBuilder a = new StringBuilder();
+        String longest = "";
+        int count = 0;
+
+        for (String w : words) 
+        {
+            w = w.substring(0, 1).toUpperCase()
+                    + w.substring(1).toLowerCase();
+
+
+            if (s.length() > 0) s.append(" ");
+            s.append(w);
+            
+            a.append(w.charAt(0));
+            
+
+            if (w.length() > longest.length()) longest = w;
+            if (w.equalsIgnoreCase(key)) count++;
+        }
+
+
+        System.out.println("Formatted: " + s);
+        System.out.println("Words: " + words.length);
+        System.out.println("Longest word: " + longest);
+        System.out.println("Keyword count: " + count);
+        System.out.println("Acronym: " + a);
+
+
+        sc.close();
+ 
+    }
+}
+
